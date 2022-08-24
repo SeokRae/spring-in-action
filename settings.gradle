@@ -1,2 +1,3 @@
 rootProject.name = 'spring-in-action'
+include 'spring-serialization'
 

@@ -1,0 +1,16 @@
+
+##
+GET http://localhost:8080/api/v1/events/?currentDate=2022-08-24T22:59:31
+
+
+### Send POST request with json body
+POST http://localhost:8080/api/v1/events/event/
+Content-Type: application/json
+
+{
+  "name": "event",
+  "eventDate": "2022-08-24T22:59:31.272298"
+}
+
+###
+GET http://localhost:8080/api/v1/events/event
