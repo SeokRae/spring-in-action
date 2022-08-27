@@ -19,4 +19,12 @@ public class JsonProcessor {
 			throw new RuntimeException(e);
 		}
 	}
+	public <T> T readValue(String jsonFileName, Class<T> clazz) {
+		try {
+			File file = ResourceUtils.getFile(CLASSPATH + "sample_json/" + jsonFileName);
+			return JacksonConfig.readValue(file, clazz);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

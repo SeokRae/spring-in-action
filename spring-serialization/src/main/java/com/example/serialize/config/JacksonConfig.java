@@ -79,7 +79,7 @@ public final class JacksonConfig {
 		try {
 			return OBJECT_MAPPER.readValue(file, valueType);
 		} catch (IOException e) {
-			throw new JsonReadException(e);
+			throw new JsonConvertException(e);
 		}
 	}
 	
