@@ -12,6 +12,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -69,6 +70,14 @@ public final class JacksonConfig {
 	public static <T> T readValue(JsonParser p, TypeReference<T> valueTypeRef) {
 		try {
 			return OBJECT_MAPPER.readValue(p, valueTypeRef);
+		} catch (IOException e) {
+			throw new JsonReadException(e);
+		}
+	}
+	
+	public static <T> T readValue(File file, Class<T> valueType) {
+		try {
+			return OBJECT_MAPPER.readValue(file, valueType);
 		} catch (IOException e) {
 			throw new JsonReadException(e);
 		}
