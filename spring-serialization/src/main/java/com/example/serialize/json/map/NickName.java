@@ -1,5 +1,6 @@
 package com.example.serialize.json.map;
 
+import com.example.serialize.json.elements.DefaultFields;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 

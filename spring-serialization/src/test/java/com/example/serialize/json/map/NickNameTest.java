@@ -1,13 +1,17 @@
 package com.example.serialize.json.map;
 
+import com.example.serialize.json.elements.DefaultFields;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.example.serialize.json.map.DefaultFields.defaultFields;
+import static com.example.serialize.json.elements.DefaultFields.defaultFields;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+/**
+ * 필수 필드와 옵션 필드를 구분하는 테스트
+ */
 @Slf4j
 @DisplayName("DefaultFields 테스트")
 class NickNameTest {

@@ -3,7 +3,6 @@ package com.example.serialize.json.map;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Address;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
