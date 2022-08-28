@@ -48,8 +48,8 @@ class JsonProcessorTest {
 	@DisplayName("Json to Object")
 	class JsonToObject {
 		@DisplayName("데이터를 역직렬화할 때 정상 처리되는 사례")
-		@ParameterizedTest
 		@ValueSource(strings = {"dynamic_data_01.json", "dynamic_data_02.json"})
+		@ParameterizedTest(name = "{0}")
 		void testCase1(String jsonFileName) {
 			final Member member = processor.readValue(jsonFileName, Member.class);
 			final int i = member.getAge();
@@ -63,8 +63,8 @@ class JsonProcessorTest {
 		}
 		
 		@DisplayName("Json 데이터를 역직렬화할 때 발생할 수 있는 문제점 - 자료형")
-		@ParameterizedTest
 		@ValueSource(strings = {"dynamic_data_03.json"})
+		@ParameterizedTest(name = "{0}")
 		void testCase2(String jsonFileName) {
 			assertThatExceptionOfType(JacksonConfig.JsonConvertException.class)
 				.isThrownBy(() -> processor.readValue(jsonFileName, Member.class));
