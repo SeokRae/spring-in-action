@@ -16,18 +16,21 @@ public class EventController {
 	
 	/**
 	 * 파라미터로 LocalDateTime 객체를 받는 방식
-	 * @param currentDate @DateTimeFormat을 통해 처리 가능
+	 *
+	 * @param currentDate
+	 *    @DateTimeFormat을 통해 처리 가능
 	 * @return
 	 */
 	@GetMapping
 	public ResponseEntity<String> eventTime(
-		@RequestParam  @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime currentDate) {
+		@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime currentDate) {
 		log.info("currentTime: {}", currentDate);
 		return ResponseEntity.ok("SUCCESS");
 	}
 	
 	/**
 	 * Event 객체로 역직렬화하는 방식
+	 *
 	 * @param event
 	 * @return
 	 */

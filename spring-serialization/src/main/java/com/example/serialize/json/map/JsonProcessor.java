@@ -19,6 +19,7 @@ public class JsonProcessor {
 			throw new RuntimeException(e);
 		}
 	}
+	
 	public <T> T readValue(String jsonFileName, Class<T> clazz) {
 		try {
 			File file = ResourceUtils.getFile(CLASSPATH + "sample_json/" + jsonFileName);

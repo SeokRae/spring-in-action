@@ -53,7 +53,7 @@ class JsonProcessorTest {
 		@ParameterizedTest(name = "{0}")
 		void testCase1(String jsonFileName) {
 			final Member member = processor.readValue(jsonFileName, Member.class);
-			final int i = member.getAge();
+			final int i = member.getLuckyNumber();
 			log.debug(
 				"\n[age type check]" +
 					"\n - result : {}", i

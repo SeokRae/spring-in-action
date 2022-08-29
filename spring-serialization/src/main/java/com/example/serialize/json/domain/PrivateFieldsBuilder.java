@@ -2,15 +2,11 @@ package com.example.serialize.json.domain;
 
 interface PrivateFieldsBuilder {
 	
-	default PrivateFieldsBuilder name(String name) {
+	default PrivateFieldsBuilder nickName(NickName nickName) {
 		return this;
 	}
 	
-	default PrivateFieldsBuilder email(String email) {
-		return this;
-	}
-	
-	default PrivateFieldsBuilder age(int age) {
+	default PrivateFieldsBuilder age(Age age) {
 		return this;
 	}
 	

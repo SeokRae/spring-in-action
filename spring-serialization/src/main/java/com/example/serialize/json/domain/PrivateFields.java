@@ -1,25 +1,36 @@
 package com.example.serialize.json.domain;
 
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 @ToString
 @Builder(builderClassName = "PrivateFieldsConcretelyBuilder", buildMethodName = "create")
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 final class PrivateFields {
-	private final String name;
-	private final String email;
-	private final int age;
+	@JsonInclude(value = JsonInclude.Include.NON_NULL)
+	private NickName nickName;
+	@JsonInclude(value = JsonInclude.Include.NON_NULL)
+	private Age age;
+	static final PrivateFields EMPTY = new PrivateFields(NickName.EMPTY_NICKNAME, Age.EMPTY);
 	
-	static final PrivateFields EMPTY = new PrivateFields("", "", 0);
+	private PrivateFields() {
+	}
+	
+	public PrivateFields(NickName nickName, Age age) {
+		this.nickName = nickName;
+		this.age = age;
+	}
 	
 	static PrivateFieldsBuilder usePrivateFields(boolean usePrivateFields) {
-		if(!usePrivateFields) {
+		if (!usePrivateFields) {
 			return () -> EMPTY;
 		}
 		return PrivateFields.builder();
 	}
 	
-	static final class PrivateFieldsConcretelyBuilder implements PrivateFieldsBuilder { }
+	static final class PrivateFieldsConcretelyBuilder implements PrivateFieldsBuilder {
+	}
 }

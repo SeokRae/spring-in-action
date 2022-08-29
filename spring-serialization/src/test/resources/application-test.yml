@@ -2,4 +2,4 @@ logging:
   level:
     root: info
     org.springframework.boot: info
-    com.example.serialize.json.map: debug
+    com.example.serialize: debug

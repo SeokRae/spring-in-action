@@ -1,15 +1,18 @@
 package com.example.serialize.json.domain;
 
+import lombok.ToString;
+
 import java.util.function.Predicate;
 
 /**
  * 특정 값에 대한 range를 Validation 처리하는 클래스
  */
+@ToString
 final class AgeValidator {
 	
-	private static final int ZERO = 0;
-	private static final AgeValidator empty = new AgeValidator(ZERO);
 	private final int value;
+	static final int ZERO = 0;
+	static final AgeValidator empty = new AgeValidator(ZERO);
 	
 	AgeValidator(int value) {
 		this.value = value;

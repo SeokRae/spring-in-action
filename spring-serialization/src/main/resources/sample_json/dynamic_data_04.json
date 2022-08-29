@@ -2,7 +2,7 @@
   "name": "seokrae",
   "email": "seokrae@kakao.com",
   "luckyNumber": "7",
-  "usePrivate": false,
+  "usePrivate": true,
   "age": 36,
   "nickName" : "SR",
   "address": "Seoul",

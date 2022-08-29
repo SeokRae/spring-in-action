@@ -22,9 +22,8 @@ class PrivateFieldsTest {
 	void testCase2() {
 		PrivateFields privateFields = PrivateFields
 			.usePrivateFields(false)
-			.name("seokrae")
-			.email("email")
-			.age(30)
+			.nickName(NickName.createOrEmpty("seokrae"))
+			.age(Age.optional(30))
 			.create();
 		
 		assertThat(privateFields).isEqualTo(PrivateFields.EMPTY);
@@ -35,13 +34,11 @@ class PrivateFieldsTest {
 	void testCase3() {
 		PrivateFields privateFields = PrivateFields
 			.usePrivateFields(true)
-			.name("seokrae")
-			.email("email")
-			.age(30)
+			.nickName(NickName.createOrEmpty("seokrae"))
+			.age(Age.optional(30))
 			.create();
 		
-		assertThat(privateFields.getName()).isEqualTo("seokrae");
-		assertThat(privateFields.getEmail()).isEqualTo("email");
+		assertThat(privateFields.getNickName()).isEqualTo("seokrae");
 		assertThat(privateFields.getAge()).isEqualTo(30);
 	}
 }
