@@ -1,6 +1,7 @@
 package com.example.serialize.json.map;
 
 import com.example.serialize.config.JacksonConfig;
+import com.example.serialize.json.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

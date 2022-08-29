@@ -1,4 +1,4 @@
-package com.example.serialize.json.map;
+package com.example.serialize.json.domain;
 
 import com.example.serialize.json.elements.DefaultFields;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +7,6 @@ import lombok.ToString;
 import java.util.Optional;
 
 @ToString
-@RequiredArgsConstructor
 public class NickName {
 	private final String value;
 	
@@ -16,6 +15,10 @@ public class NickName {
 	private static final NickName EMPTY_NICKNAME = new NickName(EMPTY);
 	
 	private static final DefaultFields<String> defaultFields = DefaultFields.defaultFields(EMPTY);
+	
+	public NickName(String value) {
+		this.value = value;
+	}
 	
 	static String getOrEmpty(String name) {
 		return Optional.ofNullable(name)
