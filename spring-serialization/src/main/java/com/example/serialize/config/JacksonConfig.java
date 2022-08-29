@@ -18,6 +18,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
+import static com.fasterxml.jackson.databind.SerializationFeature.FAIL_ON_EMPTY_BEANS;
+
 public final class JacksonConfig {
 	
 	private JacksonConfig() {
@@ -36,6 +38,7 @@ public final class JacksonConfig {
 		OBJECT_MAPPER.registerModule(javaTimeModule);
 		OBJECT_MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 		OBJECT_MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+		OBJECT_MAPPER.disable(FAIL_ON_EMPTY_BEANS);
 	}
 	
 	public static ObjectMapper getObjectMapper() {

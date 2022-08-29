@@ -1,8 +1,6 @@
 package com.example.serialize.json.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
@@ -15,11 +13,18 @@ import static com.example.serialize.json.domain.PrivateFields.usePrivateFields;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseMember {
+	
+	@JsonUnwrapped
 	private final Member member;
+	@JsonUnwrapped
 	private final PrivateFields privateFields;
+	@JsonUnwrapped
 	private final Etc etc;
 	
 	public ResponseMember(Member member, PrivateFields privateFields, Etc etc) {
+		log.debug("member: {}", member);
+		log.debug("privateFields: {}", privateFields);
+		log.debug("etc: {}", etc);
 		this.member = member;
 		this.privateFields = privateFields;
 		this.etc = etc;
@@ -43,6 +48,9 @@ public class ResponseMember {
 		@JsonProperty(value = "etcValue2") String etcValue2,
 		@JsonProperty(value = "address") String address
 	) {
+		log.debug(" - Member : {}, {}, {}", name, email, luckyNumber);
+		log.debug(" - PrivateFields : {}, {}, {}", usePrivate, age, nickName);
+		log.debug(" - Etc : {}, {}, {}", etcValue1, etcValue2, address);
 		return new ResponseMember(
 			Member.of(
 				name,

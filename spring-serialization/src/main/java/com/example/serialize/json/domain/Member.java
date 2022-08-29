@@ -7,7 +7,7 @@ import lombok.ToString;
 
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 	private String name;
 	private String email;
