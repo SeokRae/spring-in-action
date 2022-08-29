@@ -5,13 +5,13 @@ import java.util.function.Predicate;
 /**
  * 특정 값에 대한 range를 Validation 처리하는 클래스
  */
-class AgeValidator {
+final class AgeValidator {
 	
-	protected static final int ZERO = 0;
+	private static final int ZERO = 0;
 	private static final AgeValidator empty = new AgeValidator(ZERO);
 	private final int value;
 	
-	public AgeValidator(int value) {
+	AgeValidator(int value) {
 		this.value = value;
 	}
 	
